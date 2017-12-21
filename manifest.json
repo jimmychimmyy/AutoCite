@@ -1,6 +1,6 @@
 {
  "name": "AutoCite Extension",
- "description": "Base Level Extension",
+ "description": "Automatically generate MLA citations when you copy and paste text from articles to Google Docs",
  "version": "1.0",
  "manifest_version": 2,
  "browser_action": {
@@ -11,9 +11,26 @@
   "_execute_browser_action": {
    "suggested_key": {
     "default": "Ctrl+Shift+F",
-    "mac": "MacCtrl+Shift+F"
+    "mac": "Alt+F"
     },
    "description": "Opens hello.html"
+  },
+   "copied": {
+    "suggested_key": {
+     "default": "Ctrl+Shift+C",
+      "mac": "Alt+C"
+    },
+    "description": "Copy text"
+   }
+ },
+ "background": {
+  "scripts": ["background.js"]
+  //"page": "background.html"
+ },
+ "content_scripts": [
+  {
+   "matches": ["http://*/*"],
+   "js": ["oncopy.js", "background.js"]
   }
- }
+ ]
 }

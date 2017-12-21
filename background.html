@@ -1,0 +1,14 @@
+chrome.commands.onCommand.addListener(function (command) {
+	if (command === "copied") {
+		alert("copied");
+		console.log("copied");
+	}
+});
+
+chrome.extension.onRequest.addListener(
+ function(request, sender, sendResponse) {
+  if (request.event == "copy") {
+   alert("copy detected");
+  }
+  sendResponse({});
+});
