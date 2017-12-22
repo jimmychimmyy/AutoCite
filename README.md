@@ -23,7 +23,9 @@ OK, we need to implement a copy functionality. I have set up Alt+C to copy text 
 Download Zip or clone.
 
 Navigate to chrome://extensions in your browser
+
 Check the box for Developer Mode
+
 Select Load Unpacked Extension and select the directory for AutoCite
 
 For more informtion: https://developer.chrome.com/extensions
