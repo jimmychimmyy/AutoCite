@@ -1,3 +1,5 @@
+#Auto Cite
+
 This is a chrome extension that automatically generates a MLA citation when you copy text from a web page.
 
 We will use Alt+C to copy the text then generate the citation and copy it to the clipboard
