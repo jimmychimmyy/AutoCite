@@ -1,36 +1,36 @@
 {
- "name": "AutoCite Extension",
- "description": "Automatically generate MLA citations when you copy and paste text from articles to Google Docs",
- "version": "1.0",
- "manifest_version": 2,
- "browser_action": {
-  "default_popup": "hello.html",
-  "default_icon": "logo.png"
- },
- "commands": {
-  "_execute_browser_action": {
-   "suggested_key": {
-    "default": "Ctrl+Shift+F",
-    "mac": "Alt+F"
-    },
-   "description": "Opens hello.html"
-  },
-   "copied": {
-    "suggested_key": {
-     "default": "Ctrl+Shift+C",
-      "mac": "Alt+C"
-    },
-    "description": "Copy text"
-   }
- },
- "background": {
-  "scripts": ["background.js"]
-  //"page": "background.html"
- },
- "content_scripts": [
-  {
-   "matches": ["http://*/*"],
-   "js": ["oncopy.js", "background.js"]
-  }
- ]
+	"name": "AutoCite Extension",
+	"description": "Automatically generate MLA citations when you copy and paste text from articles to Google Docs",
+	"version": "1.0",
+	"manifest_version": 2,
+	"browser_action": {
+		"default_popup": "hello.html",
+		"default_icon": "logo.png"
+	},
+	"commands": {
+		"_execute_browser_action": {
+			"suggested_key": {
+				"default": "Ctrl+Shift+F",
+				"mac": "Alt+F"
+			},
+			"description": "Opens hello.html"
+		},
+		"copied": {
+			"suggested_key": {
+				"default": "Alt+C",
+				"mac": "Alt+C"
+			},
+			"description": "Copy text"
+		}
+	},
+	"background": {
+		"scripts": ["background.js"]
+		//"page": "background.html"
+	},
+	"content_scripts": [
+		{
+			"matches": ["http://*/*"],
+			"js": ["oncopy.js", "background.js"]
+		}
+	]
 }
