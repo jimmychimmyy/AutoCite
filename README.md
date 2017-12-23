@@ -31,3 +31,6 @@ devtools.inspectedWindow - obtain list of resources within page
 pageAction - (maybe), actions that can be taken on current page
 
 permissions
+
+## Q&A
+*Q:*

@@ -17,8 +17,7 @@
 		},
 		"copied": {
 			"suggested_key": {
-				"default": "Alt+C",
-				"mac": "Alt+C"
+				"default": "Alt+C"
 			},
 			"description": "Copy text"
 		}
@@ -27,6 +26,14 @@
 		"scripts": ["background.js"]
 		//"page": "background.html"
 	},
+	"permissions": [
+		"activeTab",
+		"tabs",
+		"clipboardWrite",
+		"clipboardRead",
+		"http://*/",
+		"https://*/"
+	],
 	"content_scripts": [
 		{
 			"matches": ["http://*/*"],
