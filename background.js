@@ -7,6 +7,8 @@ chrome.commands.onCommand.addListener(function (command) {
 				{code:"window.getSelection().toString();"},
 				function(x) {
 					alert(x);
+					//alert(window.location.href); 
+					getContent(window.location.href);
 				});
 		//alert(window.getSelection().toString());
 	}
@@ -50,4 +52,24 @@ function getPublisher() {}
 function getPubDate() {}
 
 // we can grab the url ourselves
+
+// function to generate citation
+function generateCitation() {}
+
+// function to add citation to clipboard
+function toClipboard() {}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
