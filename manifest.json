@@ -31,8 +31,7 @@
 		"tabs",
 		"clipboardWrite",
 		"clipboardRead",
-		"http://*/",
-		"https://*/"
+		"<all_urls>"
 	],
 	"content_scripts": [
 		{

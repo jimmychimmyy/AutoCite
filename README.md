@@ -33,4 +33,15 @@ pageAction - (maybe), actions that can be taken on current page
 permissions
 
 ## Q&A
-*Q:*
+*Q: How can we extract the raw HTML from the current tab?*
+A: Inject a script using chrome.tab.executeScript, and write a script(onCopy.js) to scrape the data. 
+	Message the result back to bacjground.js
+	Source: https://stackoverflow.com/questions/11684454/getting-the-source-html-of-the-current-page-from-chrome-extension
+
+*Q: How can we dynamically update hello.html to include all citations and copied text?*
+A: chrome.extension.sendMessage??
+	use document.getElementByID("Sources")
+	use document.createElement to make a new entry
+	use document.createTextNode to add content to created element
+	use document.appendChild to add the new entry to the .html
+	use document.removeChild to remove citation that has been deleted

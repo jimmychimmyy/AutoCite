@@ -1,3 +1,49 @@
+/*
+ *
+ */
+chrome.commands.onCommand.addListener(
+		function (command) {
+			// detect user hit Alt+C
+			// TODO: generate MLA formatted annotation to the clipboard
+			// TODO: IS NOT WORKING FOR ALL TEXTS (e.g. not working for text contained within span tag)
+			if (command === "copied") {
+				getHLContent();
+			}
+			else{
+				alert("Unrecognized Command!!");
+			}
+		});
+
+/*
+ * grabs the user-highlighted content
+ * TODO: Add content into hello.html
+ * TODO: Find a way to get the citation
+ */
+function getHLContent() {
+	// inject script to grab user highlighted text
+	chrome.tabs.executeScript(
+			{code:"window.getSelection().toString();"},
+			// callback function, copies the highlighted string 
+			// into clipboard
+			function(x) {
+				if(x === undefined) 
+					alert("Could not copy highlighted text!");
+				else {
+					var res = "Copied from AutoCite: ".concat(x);
+					copyToClipboard(res);
+					chrome.browserAction.getPopup(
+							function(x) {
+								console.log(x);
+							});
+					alert(res);
+				}
+			});
+	//alert(window.getSelection().toString());
+}
+
+/*
+ * copies the text into the system clipboard
+ */
 function copyToClipboard( text ){
 	var copyDiv = document.createElement('div');
 	copyDiv.contentEditable = true;
@@ -10,28 +56,15 @@ function copyToClipboard( text ){
 	document.body.removeChild(copyDiv);
 }
 
-chrome.commands.onCommand.addListener(function (command) {
-	// detect user hit Alt+C
-	// generate MLA formatted annotation to the clipboard
-	// IS NOT WORKING FOR ALL TEXTS (e.g. not working for text contained within span tag)
-	if (command === "copied") {
-		chrome.tabs.executeScript(
-				{code:"window.getSelection().toString();"},
-				function(x) {
-					var res = "Copied from AutoCite: ".concat(x);
-					copyToClipboard(res);
-					alert(res);
-				});
-		//alert(window.getSelection().toString());
-	}
-});
 
 /*
- * Meta data we need: URL, website title, article title, date published, date accessed, author/contributor, publisher/sponser, (medium? - is source pdf, word doc, ebook, etc?)
+ * Meta data we need: 
+ * 		URL, website title, article title, date published, date accessed, 
+ * 		author/contributor, publisher/sponser, (medium? - is source pdf, 
+ * 		word doc, ebook, etc?)
  *
- *
- * MLA 8 citation structure: author name, title of article/page, website title, publisher name, date of publication, URL
- *
+ * MLA 8 citation structure: author name, title of article/page, website title,
+ * 	 publisher name, date of publication, URL
  */
 
 // function to get contents of html page
