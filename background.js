@@ -1,7 +1,9 @@
 chrome.runtime.onMessage.addListener(
 		function(request) {
 			if(request.action == "oncopy") {
-				alert(request.result);
+				alert(request.result+'\n'+
+						request.author+'\n'+
+						request.article);
 			}
 		});
 /*

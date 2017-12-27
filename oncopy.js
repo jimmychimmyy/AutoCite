@@ -76,12 +76,14 @@ function getAuthor() {
 	var authorMeta = document.getElementsByName("author");
 	if(authorMeta) 
 		return authorMeta.content;
-	
-
 }
 
 // function to get title of article/page
-function getArticle() {}
+function getArticle() {
+	var articleTitle = document.getElementsByTagName("title");
+	if(articleTitle)
+		return articleTitle[0].innerHTML;
+}
 
 // function to website title
 function getSite() {}
@@ -104,5 +106,6 @@ function toClipboard() {}
 chrome.runtime.sendMessage({
 	action: "oncopy", 
 	result: getHLContent(), 
-	author: getAuthor()
+	author: getAuthor(),
+	article: getArticle()
 });
