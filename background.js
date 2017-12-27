@@ -1,5 +1,5 @@
 chrome.runtime.onMessage.addListener(
-		function(request, sender) {
+		function(request) {
 			if(request.action == "oncopy") {
 				alert(request.result);
 			}
@@ -14,11 +14,8 @@ chrome.commands.onCommand.addListener(
 			// TODO: IS NOT WORKING FOR ALL TEXTS (e.g. not working for text contained within span tag)
 			if (command === "copied") {
 				//getHLContent();
-				chrome.tabs.executeScript(
-						null,
-						{script:"oncopy.js"}, 
-						function () {
-						});
+				//alert("Alt-C detected!");
+				chrome.tabs.executeScript({file:"oncopy.js"});
 			}
 			else{
 				alert("Unrecognized Command!!");

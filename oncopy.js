@@ -1,18 +1,14 @@
+/**
 // on copy event, send message to background.html
 function onCopy(e) {
-	chrome.extension.sendRequest(
-			{event: "copy"});
+chrome.extension.sendRequest(
+{event: "copy"});
 }
 
 // register event listener
 document.addEventListener('copy', onCopy, true);
 
-chrome.runtime.sendMessage() {
-	{
-		event:"oncopy",
-		hlContent:getHLContent()
-	}
-}
+*/
 
 /*
  * grabs the user-highlighted content
@@ -23,18 +19,15 @@ function getHLContent() {
 	var x = window.getSelection().toString();
 	// callback function, copies the highlighted string 
 	// into clipboard
-	if(x === undefined) 
+	if(x === undefined) {
 		alert("Could not copy highlighted text!");
+		return "";
+	}
 	else {
 		var res = "Copied from AutoCite: ".concat(x);
 		copyToClipboard(res);
-		chrome.browserAction.getPopup(
-				function(x) {
-					console.log(x);
-				});
-		alert(res);
 	}
-	return x
+	return x;
 	//alert(window.getSelection().toString());
 }
 
@@ -79,7 +72,13 @@ function getContent(url, callback) {
 }
 
 // function to get author name
-function getAuthor() {}
+function getAuthor() {
+	var authorMeta = document.getElementsByName("author");
+	if(authorMeta) 
+		return authorMeta.content;
+	
+
+}
 
 // function to get title of article/page
 function getArticle() {}
@@ -100,3 +99,10 @@ function generateCitation() {}
 
 // function to add citation to clipboard
 function toClipboard() {}
+
+
+chrome.runtime.sendMessage({
+	action: "oncopy", 
+	result: getHLContent(), 
+	author: getAuthor()
+});

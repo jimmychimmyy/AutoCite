@@ -31,12 +31,8 @@
 		"tabs",
 		"clipboardWrite",
 		"clipboardRead",
-		"<all_urls>"
-	],
-	"content_scripts": [
-		{
-			"matches": ["http://*/*"],
-			"js": ["oncopy.js", "background.js"]
-		}
+		"<all_urls>",
+		"http://*/*", 
+		"https://*/*"
 	]
 }
