@@ -25,7 +25,8 @@ function getHLContent() {
 	}
 	else {
 		var res = "Copied from AutoCite: ".concat(x);
-		copyToClipboard(res);
+		//alert(x);
+		//copyToClipboard(res);
 	}
 	return x;
 	//alert(window.getSelection().toString());
@@ -35,6 +36,7 @@ function getHLContent() {
  * copies the text into the system clipboard
  */
 function copyToClipboard( text ){
+	/* // THIS IS CAUSING THE BROWSWER TO JUMP TO BOTTOM OF THE PAGE
 	var copyDiv = document.createElement('div');
 	copyDiv.contentEditable = true;
 	document.body.appendChild(copyDiv);
@@ -44,6 +46,15 @@ function copyToClipboard( text ){
 	document.execCommand('SelectAll');
 	document.execCommand("Copy", false, null);
 	document.body.removeChild(copyDiv);
+	*/
+	var input = document.createElement("input");
+	document.body.appendChild(input);
+	input.setAttribute("id", "toCopy");
+	document.getElementById("toCopy").value = text;
+	input.select();
+	document.execCommand("copy");
+	document.body.removeChild(input);
+
 }
 
 
@@ -59,16 +70,8 @@ function copyToClipboard( text ){
 
 // function to get contents of html page
 function getContent(url, callback) {
-	var request = new XMLHttpRequest();
-	request.onload = function() {
-		if (callback && typeof(callback) === 'function') {
-			callback(this.responseXML);
-		}
-	}
-
-	request.open('GET', url);
-	request.responseType = 'document';
-	request.send();
+	var doc = document.documentElement.innerHTML;
+	return doc;
 }
 
 // function to get author name
@@ -105,7 +108,7 @@ function toClipboard() {}
 
 chrome.runtime.sendMessage({
 	action: "oncopy", 
-	result: getHLContent(), 
+	result: getHLContent(),
 	author: getAuthor(),
 	article: getArticle()
 });
