@@ -26,6 +26,7 @@ function getHLContent() {
 	else {
 		var res = "Copied from AutoCite: ".concat(x);
 		//alert(x);
+		copyToClipboard(x);
 		//copyToClipboard(res);
 	}
 	return x;
@@ -36,7 +37,8 @@ function getHLContent() {
  * copies the text into the system clipboard
  */
 function copyToClipboard( text ){
-	/* // THIS IS CAUSING THE BROWSWER TO JUMP TO BOTTOM OF THE PAGE
+	// THIS IS CAUSING THE BROWSWER TO JUMP TO BOTTOM OF THE PAGE
+	/*
 	var copyDiv = document.createElement('div');
 	copyDiv.contentEditable = true;
 	document.body.appendChild(copyDiv);
@@ -54,7 +56,6 @@ function copyToClipboard( text ){
 	input.select();
 	document.execCommand("copy");
 	document.body.removeChild(input);
-
 }
 
 
