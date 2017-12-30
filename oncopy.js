@@ -90,21 +90,25 @@ function getArticle() {
 }
 
 // function to website title
-function getSite() {}
+function getSite() {
+	return document.title();
+}
 
 // function to get publisher
 function getPublisher() {}
 
 // function to get publication date
-function getPubDate() {}
+// TODO - may need to implement a more general query selector
+function getPubDate() {
+	var element = document.querySelector('meta[property="article:published"]');
+	if (element)
+		return element.getAttribute("content");
+}
 
 // we can grab the url ourselves
 
 // function to generate citation
 function generateCitation() {}
-
-// function to add citation to clipboard
-function toClipboard() {}
 
 
 chrome.runtime.sendMessage({
