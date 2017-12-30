@@ -32,6 +32,10 @@ pageAction - (maybe), actions that can be taken on current page
 
 permissions
 
+## Issues
+
+Alt+C (on mac at least) auto scrolls to bottom of the page
+
 ## Q&A
 *Q: How can we extract the raw HTML from the current tab?*
 A: Inject a script using chrome.tab.executeScript, and write a script(onCopy.js) to scrape the data. 
