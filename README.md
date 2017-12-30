@@ -1,4 +1,4 @@
-ub## Auto Cite
+## Auto Cite
 
 This is a chrome extension that automatically generates a MLA citation when you copy text from a web page.
 
