@@ -1,4 +1,4 @@
-## Auto Cite
+ub## Auto Cite
 
 This is a chrome extension that automatically generates a MLA citation when you copy text from a web page.
 
@@ -34,7 +34,9 @@ permissions
 
 ## Issues
 
-Alt+C (on mac at least) auto scrolls to bottom of the page
+Alt+C (on mac at least) auto scrolls to bottom of the page (fixed on mac)
+
+Alt+C does not copy on every page (so far works on news articles)
 
 ## Q&A
 *Q: How can we extract the raw HTML from the current tab?*
