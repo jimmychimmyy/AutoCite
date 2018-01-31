@@ -1,5 +1,5 @@
 /**
-// on copy event, send message to background.html
+	// on copy event, send message to background.html
 function onCopy(e) {
 chrome.extension.sendRequest(
 {event: "copy"});
@@ -17,7 +17,7 @@ document.addEventListener('copy', onCopy, true);
  */
 function getHLContent() {
 	var x = window.getSelection().toString();
-	// callback function, copies the highlighted string 
+	// callback function, copies the highlighted string
 	// into clipboard
 	if(x === undefined) {
 		alert("Could not copy highlighted text!");
@@ -60,9 +60,9 @@ function copyToClipboard( text ){
 
 
 /*
- * Meta data we need: 
- * 		URL, website title, article title, date published, date accessed, 
- * 		author/contributor, publisher/sponser, (medium? - is source pdf, 
+ * Meta data we need:
+ * 		URL, website title, article title, date published, date accessed,
+ * 		author/contributor, publisher/sponser, (medium? - is source pdf,
  * 		word doc, ebook, etc?)
  *
  * MLA 8 citation structure: author name, title of article/page, website title,
@@ -117,7 +117,7 @@ function generateCitation() {}
 
 
 chrome.runtime.sendMessage({
-	action: "oncopy", 
+	action: "oncopy",
 	result: getHLContent(),
 	author: getAuthor(),
 	article: getArticle()
