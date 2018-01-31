@@ -77,9 +77,14 @@ function getContent(url, callback) {
 
 // function to get author name
 function getAuthor() {
-	var authorMeta = document.getElementsByName("author")[0].getAttribute('content');
-	if(authorMeta) 
-		return authorMeta;
+	try {
+		var authorMeta = document.getElementsByName("author");
+		if(authorMeta) 
+			return authorMeta[0].getAttribute('content');
+	} catch (e) {
+		return "could not find author: " + e;
+	}
+
 }
 
 // function to get title of article/page
