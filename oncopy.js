@@ -37,25 +37,7 @@ function getHLContent() {
  * copies the text into the system clipboard
  */
 function copyToClipboard( text ){
-	// THIS IS CAUSING THE BROWSWER TO JUMP TO BOTTOM OF THE PAGE
-	/*
-	var copyDiv = document.createElement('div');
-	copyDiv.contentEditable = true;
-	document.body.appendChild(copyDiv);
-	copyDiv.innerHTML = text;
-	copyDiv.unselectable = "off";
-	copyDiv.focus();
-	document.execCommand('SelectAll');
-	document.execCommand("Copy", false, null);
-	document.body.removeChild(copyDiv);
-	*/
-	var input = document.createElement("input");
-	document.body.appendChild(input);
-	input.setAttribute("id", "toCopy");
-	document.getElementById("toCopy").value = text;
-	input.select();
 	document.execCommand("copy");
-	document.body.removeChild(input);
 }
 
 
