@@ -104,5 +104,5 @@ function generateCitation() {
 
 chrome.runtime.sendMessage({
 	action: "onpaste",
-	result: getCitation(),
+	result: generateCitation(),
 });
