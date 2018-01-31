@@ -10,10 +10,6 @@ document.addEventListener('copy', onCopy, true);
 
 */
 
-function getCitation() {
-	return "No Citation Generated"
-}
-
 /*
  * grabs the user-highlighted content
  * TODO: Add content into hello.html
@@ -81,9 +77,11 @@ function getArticle() {
 }
 
 // function to website title
+/*
 function getSite() {
 	return document.title();
 }
+*/
 
 // function to get publisher
 function getPublisher() {}
@@ -99,7 +97,9 @@ function getPubDate() {
 // we can grab the url ourselves
 
 // function to generate citation
-function generateCitation() {}
+function generateCitation() {
+	return "No Citation Generated";
+}
 
 
 chrome.runtime.sendMessage({
